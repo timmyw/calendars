@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"time"
 	
-	"timmyw/calendars"
+	"github.com/timmyw/calendars"
 	
 )
 

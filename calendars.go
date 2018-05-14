@@ -14,6 +14,15 @@ const ReferenceFormat = "%04d%02d%02d%02d%02d%02d"
 // Reference time (from time package) in the reference format.
 const ReferenceTime = "20060102130405"
 
+type DateElements struct{
+	Y int
+	M int
+	D int
+	Hr int
+	Min int
+	Sec int
+}
+
 // Convert a "standard" date/time (without timezone) to a time.Time
 // value
 // 
@@ -93,9 +102,9 @@ func HMS_to_UT(H int, M int, S int) float64 {
 	return h / 24.0
 }
 
-func YMDHMS_to_JD(Y int, M int, D int, H int, Min int, S int) float64 {
+func YMDHMS_to_JD(Y int, M int, D int, Hr int, Min int, Sec int) float64 {
 	jd := YMD_to_JD(Y, M, D)
-	ut := HMS_to_UT(H, Min, S)
+	ut := HMS_to_UT(Hr, Min, Sec)
 	// fmt.Printf("%10.5f  %10.5f : %10.5f\n", jd, ut, jd+ut)
 
 	return jd + ut
